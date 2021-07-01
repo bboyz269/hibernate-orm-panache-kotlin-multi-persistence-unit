@@ -1,0 +1,39 @@
+quarkus:
+  datasource:
+    admin:
+      db-kind: mysql
+      username: me
+      password: myp@ssw0rd
+      jdbc:
+        url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=false
+    cust:
+      db-kind: mysql
+      username: me
+      password: myp@ssw0rd
+      jdbc:
+        url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=false
+  hibernate-orm:
+    admin:
+      datasource: admin
+      packages: [ ac.me.entity.admin, io.quarkus.hibernate.orm.panache.kotlin ]
+      dialect: org.hibernate.dialect.MySQL57Dialect
+    cust:
+      multitenant: DATABASE
+      datasource: cust
+      packages: ac.me.entity.cust
+      dialect: org.hibernate.dialect.MySQL57Dialect
+"%dev":
+  quarkus:
+    banner:
+      enabled: true
+    hibernate-orm:
+      admin:
+        log:
+          sql: true
+      cust:
+        log:
+          sql: true
+"%prod":
+  quarkus:
+    banner:
+      enabled: false
