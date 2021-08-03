@@ -1,21 +1,22 @@
 package ac.me.entity
 
-import ac.me.entity.admin.Admin
-import ac.me.entity.cust.Cust
 import javax.transaction.Transactional
 import javax.ws.rs.GET
 import javax.ws.rs.Path
 
-@Path("/api")
-class Resource {
+@Path("/")
+class Resource(
+    private val javaJavaRepository: ac.me.entity.java.JavaRepository,
+    private val kotlinKotlinRepository: ac.me.entity.kotlin.KotlinRepository
+) {
 
     @GET
-    @Path("admin")
+    @Path("java")
     @Transactional
-    fun findAllAmin() = Admin.listAll()
+    fun java() = javaJavaRepository.listAll()
 
     @GET
-    @Path("cust")
+    @Path("kotlin")
     @Transactional
-    fun findAllCust() = Cust.listAll()
+    fun kotlin() = kotlinKotlinRepository.listAll()
 }

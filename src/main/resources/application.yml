@@ -1,35 +1,29 @@
 quarkus:
   datasource:
-    admin:
-      db-kind: mysql
-      username: me
-      password: myp@ssw0rd
-      jdbc:
-        url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=false
-    cust:
-      db-kind: mysql
-      username: me
-      password: myp@ssw0rd
-      jdbc:
-        url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useSSL=false
+    devservices:
+      image-name: mysql
+      enabled: true
+    db-kind: mysql
   hibernate-orm:
-    admin:
-      datasource: admin
-      packages: [ ac.me.entity.admin, io.quarkus.hibernate.orm.panache.kotlin ]
-      dialect: org.hibernate.dialect.MySQL57Dialect
-    cust:
-      multitenant: DATABASE
-      datasource: cust
-      packages: ac.me.entity.cust
-      dialect: org.hibernate.dialect.MySQL57Dialect
+    packages: ac.me.entity.default
+    dialect: org.hibernate.dialect.MySQL57Dialect
+    java:
+      database:
+        generation: drop-and-create
+      datasource: <default>
+      packages: ac.me.entity.java
+    kotlin:
+      database:
+        generation: drop-and-create
+      datasource: <default>
+      packages: ac.me.entity.kotlin
 "%dev":
   quarkus:
     banner:
       enabled: true
     hibernate-orm:
-      admin:
-        log:
-          sql: true
+      log:
+        sql: true
       cust:
         log:
           sql: true

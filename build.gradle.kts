@@ -1,7 +1,7 @@
 plugins {
-    kotlin("jvm") version "1.4.32"
-    kotlin("plugin.allopen") version "1.4.32"
-    id("io.quarkus") version "2.0.0.Final"
+    kotlin("jvm") version "1.5.10"
+    kotlin("plugin.allopen") version "1.5.10"
+    id("io.quarkus") version "2.1.0.Final"
 }
 
 repositories {
@@ -11,13 +11,14 @@ repositories {
 
 dependencies {
 
-    implementation(enforcedPlatform("io.quarkus:quarkus-universe-bom:2.0.0.Final"))
+    implementation(enforcedPlatform("io.quarkus:quarkus-universe-bom:2.1.0.Final"))
 
     implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
+    implementation("io.quarkus:quarkus-hibernate-orm-panache")
+    implementation("io.quarkus:quarkus-jdbc-mysql")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-resteasy-jackson")
     runtimeOnly("io.quarkus:quarkus-config-yaml")
-    runtimeOnly("io.quarkus:quarkus-jdbc-mysql")
 }
 
 java {
