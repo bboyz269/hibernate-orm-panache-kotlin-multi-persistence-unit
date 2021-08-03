@@ -1,17 +1,9 @@
 quarkus:
   datasource:
     devservices:
-      image-name: mysql
       enabled: true
     db-kind: mysql
   hibernate-orm:
-    packages: ac.me.entity.default
-    dialect: org.hibernate.dialect.MySQL57Dialect
-    java:
-      database:
-        generation: drop-and-create
-      datasource: <default>
-      packages: ac.me.entity.java
     kotlin:
       database:
         generation: drop-and-create

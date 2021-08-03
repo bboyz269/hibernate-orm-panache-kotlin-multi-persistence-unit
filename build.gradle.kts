@@ -14,7 +14,6 @@ dependencies {
     implementation(enforcedPlatform("io.quarkus:quarkus-universe-bom:2.1.0.Final"))
 
     implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
-    implementation("io.quarkus:quarkus-hibernate-orm-panache")
     implementation("io.quarkus:quarkus-jdbc-mysql")
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-resteasy-jackson")
